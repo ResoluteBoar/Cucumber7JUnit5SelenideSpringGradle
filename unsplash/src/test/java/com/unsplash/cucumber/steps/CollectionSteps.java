@@ -35,12 +35,12 @@ public class CollectionSteps {
   @Autowired
   private ScenarioContext scenarioContext;
 
-  @When("^he searches pics with keyword \"(.*)\"$")
+  @When("^он ищет коллекцию по ключевому слову \"(.*)\"$")
   public void search_pics_with_keyword(String keyword) throws Throwable {
     homePage.enterSearch(keyword);
   }
 
-  @When("^he adds the first image into new collection name \"(.*)\"$")
+  @When("^он добавляет первое изображение в новую коллекцию \"(.*)\"$")
   public void add_first_image_to_collection(String collectionName) throws Throwable {
     searchResultPage.addFirstPicToCollection();
     searchResultPage.createNewCollection();
@@ -51,12 +51,12 @@ public class CollectionSteps {
     dataStorage.setCollectionNames(collectionName);
   }
 
-  @When("^he navigates to his collection page$")
+  @When("^он ищет по странице его коллекции$")
   public void navigate_collection_page() throws Throwable {
     open(PropertyUtils.getBaseUrl() + "@" + PropertyUtils.getUserProfile() + "/collections");
   }
 
-  @Then("^he can see the new collection is added in his collection$")
+  @Then("^он может видеть, что новая коллекция добавлена в его коллекцию$")
   public void check_collection_added() throws Throwable {
     String collectionName = (String) scenarioContext.getContext(DataItem.COLLECTION_NAME);
     assertThat(collectionPage.getCollectionNameList()).contains(collectionName);

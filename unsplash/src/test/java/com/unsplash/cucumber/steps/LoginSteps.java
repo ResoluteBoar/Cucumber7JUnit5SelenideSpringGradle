@@ -23,24 +23,24 @@ public class LoginSteps {
   @Autowired
   private HomePage homePage;
 
-  @When("^the user is on the main page$")
+  @When("^пользователь заходит на главную страницу$")
   public void user_on_main_page() throws Throwable {
     open(PropertyUtils.getBaseUrl());
   }
 
-  @When("^the user goes to Login Page$")
+  @When("^пользователь заходит на страницу Войти$")
   public void go_to_login_page() throws Throwable {
     mainPage.clickOnLoginLink();
   }
 
-  @When("^the user logs in \"(.*)\" credential$")
+  @When("^пользователь входит в систему с учетными данными \"(.*)\"$")
   public void go_to_login_page(String userName) throws Throwable {
     String[] userInfo = Constants.accountInfo.get(userName);
     loginPage.enterCredential(userInfo[2], userInfo[1]);
     loginPage.clickOnLoginButton();
   }
 
-  @Then("^the user is redirected to Home Page$")
+  @Then("^пользователь возвращается на главную страницу$")
   public void redirected_to_home_page() throws Throwable {
     assertThat(homePage.isHomePageLoaded()).withFailMessage("Home Page is not loaded").isTrue();
   }

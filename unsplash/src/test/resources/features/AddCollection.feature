@@ -2,12 +2,22 @@
 Feature: Add Collection
 
   @id-001 @add-search-result
-  Scenario: Add search result picture into new Collection 1.
-    Given the user is on the main page
-    And the user goes to Login Page
-    And the user logs in "zenautomator101" credential
-    When he searches pics with keyword "Cute Puppies"
-    And he adds the first image into new collection name "Cute Puppies Collection"
-    And he navigates to his collection page
-    Then he can see the new collection is added in his collection
+  Scenario: Добавить результат поиска изображения в коллекцию 1.
+    Given пользователь заходит на главную страницу
+    And пользователь заходит на страницу Войти
+    And пользователь входит в систему с учетными данными "ResoluteBoar"
+    When он ищет коллекцию по ключевому слову "Cute Puppies"
+    And он добавляет первое изображение в новую коллекцию "Cute Puppies Collection"
+    And он ищет по странице его коллекции
+    Then он может видеть, что новая коллекция добавлена в его коллекцию
+
+  @id-002 @login-and-return-home-page
+    Scenario: Пользователь входит и возвращается на главную страницу
+      Given пользователь заходит на главную страницу
+      And пользователь заходит на страницу Войти
+      And пользователь входит в систему с учетными данными "lemeked2005"
+      When он добавляет первое изображение в новую коллекцию "Казань 2025"
+      And он ищет по странице его коллекции
+      Then он может видеть, что новая коллекция добавлена в его коллекцию
+
 
